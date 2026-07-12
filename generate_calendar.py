@@ -17,7 +17,7 @@ output.add("X-WR-CALNAME", "All Blacks Fixtures")
 count = 0
 
 excluded_terms = [
-    "♀️",
+    "♀",
     "Women",
     "Women's",
     "Women’s",
