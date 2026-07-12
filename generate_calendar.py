@@ -44,10 +44,6 @@ for component in source_calendar.walk():
     if "New Zealand" not in summary:
         continue
 
-    # Only international rugby
-    if "International Rugby" not in event_text:
-        continue
-
     # Exclude other NZ teams
     if any(term in event_text for term in excluded_terms):
         continue
@@ -64,7 +60,7 @@ for component in source_calendar.walk():
         if event_date < datetime.now(timezone.utc):
             continue
 
-    # Clean the title
+    # Clean title
     clean_summary = summary
 
     for prefix in ["NC:", "C:", "NZ:"]:
