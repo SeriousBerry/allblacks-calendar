@@ -1,9 +1,9 @@
 import requests
 from icalendar import Calendar, Event
-from datetime import datetime
 import pytz
+from datetime import datetime
 
-SOURCE_URL = "PUT_MIKE_RIVERSDALE_URL_HERE"
+SOURCE_URL = "https://www.google.com/calendar/ical/ct240d39oc9kq21cq3bn70jii8%40group.calendar.google.com/public/basic.ics"
 
 SYDNEY = pytz.timezone("Australia/Sydney")
 
@@ -15,7 +15,7 @@ source_calendar = Calendar.from_ical(response.text)
 output = Calendar()
 output.add("prodid", "-//All Blacks Calendar//EN")
 output.add("version", "2.0")
-output.add("X-WR-CALNAME", "All Blacks Tests")
+output.add("X-WR-CALNAME", "All Blacks Fixtures")
 
 count = 0
 
@@ -34,16 +34,20 @@ for component in source_calendar.walk():
 
     event = Event()
 
-    for field in [
-        "summary",
-        "dtstart",
-        "dtend",
-        "description",
-        "location",
-        "uid",
-    ]:
-        if component.get(field):
-            event.add(field, component.get(field))
+    event.add("uid", component.get("uid"))
+    event.add("summary", summary)
+
+    if component.get("dtstart"):
+        event.add("dtstart", component.get("dtstart").dt)
+
+    if component.get("dtend"):
+        event.add("dtend", component.get("dtend").dt)
+
+    if component.get("location"):
+        event.add("location", component.get("location"))
+
+    if component.get("description"):
+        event.add("description", component.get("description"))
 
     output.add_component(event)
     count += 1
@@ -51,4 +55,4 @@ for component in source_calendar.walk():
 with open("allblacks.ics", "wb") as f:
     f.write(output.to_ical())
 
-print(f"Created calendar with {count} All Blacks events")
+print(f"Created All Blacks calendar with {count} events")
