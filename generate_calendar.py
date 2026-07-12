@@ -1,43 +1,54 @@
+import requests
+from icalendar import Calendar, Event
 from datetime import datetime
+import pytz
 
-fixtures = [
-    {
-        "date": "2026-07-04 19:10",
-        "opponent": "France",
-        "venue": "Christchurch"
-    },
-    {
-        "date": "2026-07-11 19:10",
-        "opponent": "Italy",
-        "venue": "Wellington"
-    }
-]
+SOURCE_URL = "PUT_MIKE_RIVERSDALE_URL_HERE"
 
-calendar = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//All Blacks Calendar//EN",
-    "CALSCALE:GREGORIAN",
-    "X-WR-CALNAME:All Blacks Tests"
-]
+SYDNEY = pytz.timezone("Australia/Sydney")
 
-for match in fixtures:
-    dt = datetime.strptime(match["date"], "%Y-%m-%d %H:%M")
-    start = dt.strftime("%Y%m%dT%H%M00")
-    
-    calendar.extend([
-        "BEGIN:VEVENT",
-        f"UID:{start}-{match['opponent'].replace(' ','')}@allblacks-calendar",
-        f"DTSTAMP:{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}",
-        f"DTSTART:{start}",
-        f"SUMMARY:All Blacks v {match['opponent']}",
-        f"LOCATION:{match['venue']}",
-        "END:VEVENT"
-    ])
+response = requests.get(SOURCE_URL)
+response.raise_for_status()
 
-calendar.append("END:VCALENDAR")
+source_calendar = Calendar.from_ical(response.text)
 
-with open("allblacks.ics", "w") as f:
-    f.write("\n".join(calendar))
+output = Calendar()
+output.add("prodid", "-//All Blacks Calendar//EN")
+output.add("version", "2.0")
+output.add("X-WR-CALNAME", "All Blacks Tests")
 
-print("All Blacks calendar generated")
+count = 0
+
+for component in source_calendar.walk():
+    if component.name != "VEVENT":
+        continue
+
+    summary = str(component.get("summary", ""))
+
+    # Keep only All Blacks matches
+    if (
+        "All Blacks" not in summary
+        and "New Zealand" not in summary
+    ):
+        continue
+
+    event = Event()
+
+    for field in [
+        "summary",
+        "dtstart",
+        "dtend",
+        "description",
+        "location",
+        "uid",
+    ]:
+        if component.get(field):
+            event.add(field, component.get(field))
+
+    output.add_component(event)
+    count += 1
+
+with open("allblacks.ics", "wb") as f:
+    f.write(output.to_ical())
+
+print(f"Created calendar with {count} All Blacks events")
