@@ -18,8 +18,8 @@ count = 0
 
 excluded_terms = [
     "Women",
-    "Women’s",
     "Women's",
+    "Women’s",
     "Black Ferns",
     "Maori",
     "Māori",
@@ -36,18 +36,23 @@ for component in source_calendar.walk():
 
     summary = str(component.get("summary", ""))
     description = str(component.get("description", ""))
+    location = str(component.get("location", ""))
 
-    event_text = summary + " " + description
+    event_text = summary + " " + description + " " + location
 
-    # Only include New Zealand senior men's matches
+    # Only New Zealand senior men's fixtures
     if "New Zealand" not in summary:
         continue
 
-    # Remove other New Zealand teams
+    # Only international rugby
+    if "International Rugby" not in event_text:
+        continue
+
+    # Exclude other NZ teams
     if any(term in event_text for term in excluded_terms):
         continue
 
-    # Remove historical matches
+    # Remove past events
     start = component.get("dtstart")
 
     if not start:
@@ -59,10 +64,16 @@ for component in source_calendar.walk():
         if event_date < datetime.now(timezone.utc):
             continue
 
+    # Clean the title
+    clean_summary = summary
+
+    for prefix in ["NC:", "C:", "NZ:"]:
+        clean_summary = clean_summary.replace(prefix, "").strip()
+
     event = Event()
 
     event.add("uid", component.get("uid"))
-    event.add("summary", summary)
+    event.add("summary", clean_summary)
 
     if component.get("dtstart"):
         event.add("dtstart", component.get("dtstart").dt)
