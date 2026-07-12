@@ -56,9 +56,13 @@ for component in source_calendar.walk():
         continue
 
     event_date = start.dt
-
+    
+    # Remove historical events
     if isinstance(event_date, datetime):
-        if event_date < datetime.now(timezone.utc):
+        if event_date.replace(tzinfo=timezone.utc) < datetime.now(timezone.utc):
+            continue
+    else:
+        if event_date < datetime.now().date():
             continue
 
     # Clean title
