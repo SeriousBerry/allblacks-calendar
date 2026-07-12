@@ -15,7 +15,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-
+    
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+    
       - name: Run calendar generator
         run: |
           python generate_calendar.py
