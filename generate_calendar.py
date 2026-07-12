@@ -1,11 +1,8 @@
 import requests
 from icalendar import Calendar, Event
-import pytz
-from datetime import datetime
+from datetime import datetime, timezone
 
 SOURCE_URL = "https://www.google.com/calendar/ical/ct240d39oc9kq21cq3bn70jii8%40group.calendar.google.com/public/basic.ics"
-
-SYDNEY = pytz.timezone("Australia/Sydney")
 
 response = requests.get(SOURCE_URL)
 response.raise_for_status()
@@ -19,18 +16,48 @@ output.add("X-WR-CALNAME", "All Blacks Fixtures")
 
 count = 0
 
+excluded_terms = [
+    "Women",
+    "Women’s",
+    "Women's",
+    "Black Ferns",
+    "Maori",
+    "Māori",
+    "All Blacks XV",
+    "U20",
+    "Under 20",
+    "Sevens",
+]
+
 for component in source_calendar.walk():
+
     if component.name != "VEVENT":
         continue
 
     summary = str(component.get("summary", ""))
+    description = str(component.get("description", ""))
 
-    # Keep only All Blacks matches
-    if (
-        "All Blacks" not in summary
-        and "New Zealand" not in summary
-    ):
+    event_text = summary + " " + description
+
+    # Only include New Zealand senior men's matches
+    if "New Zealand" not in summary:
         continue
+
+    # Remove other New Zealand teams
+    if any(term in event_text for term in excluded_terms):
+        continue
+
+    # Remove historical matches
+    start = component.get("dtstart")
+
+    if not start:
+        continue
+
+    event_date = start.dt
+
+    if isinstance(event_date, datetime):
+        if event_date < datetime.now(timezone.utc):
+            continue
 
     event = Event()
 
@@ -52,7 +79,9 @@ for component in source_calendar.walk():
     output.add_component(event)
     count += 1
 
+
 with open("allblacks.ics", "wb") as f:
     f.write(output.to_ical())
+
 
 print(f"Created All Blacks calendar with {count} events")
