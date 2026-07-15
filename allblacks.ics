@@ -5,18 +5,36 @@ CALSCALE:GREGORIAN
 X-WR-CALNAME:All Blacks Fixtures
 X-WR-TIMEZONE:Australia/Sydney
 BEGIN:VEVENT
-SUMMARY:[RWC] New Zealand v Hong Kong China
-DTSTART:20271015T061500Z
-DTEND:20271015T074500Z
-UID:f0b276b4-3774-45b4-83e3-dc32d0b3048e@allblacks-calendar
+SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
+DTSTART:20260822T150500Z
+DTEND:20260822T170500Z
+UID:934f4d61-2ee8-48a6-8d91-cc59b008c871@allblacks-calendar
 DESCRIPTION:All Blacks fixture
-LOCATION:Marvel Stadium\, 740 Bourke St\, Docklands VIC 3008\, Australia
+LOCATION:Emirates Airline Park\, S Park Ln\, New Doornfontein\, Johannesbu
+ rg\, 2094\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
+DTSTART:20260829T150500Z
+DTEND:20260829T170500Z
+UID:a3e43493-51cb-4b35-a8ea-cf5248f1b2df@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:DHL Stadium\, Fritz Sonnenberg Rd\, Green Point\, Cape Town\, 805
+ 1\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:New Zealand 🇳🇿 v ☘️ Ireland
+DTSTART:20260718T071000Z
+DTEND:20260718T091000Z
+UID:6a74c1bc-f34f-4164-bdc5-4838520d00a4@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Eden Park\, Auckland\, New Zealand
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Australia 🇦🇺 v 🇳🇿 New Zealand
 DTSTART:20261017T044500Z
 DTEND:20261017T064500Z
-UID:7026bdef-5e4e-4cac-ac4b-91c4d9253bea@allblacks-calendar
+UID:c6bd1896-cbd0-48f1-84cb-9c88d8bbcfa5@allblacks-calendar
 DESCRIPTION:All Blacks fixture
 LOCATION:Accor Stadium\, Edwin Flack Ave\, Sydney Olympic Park NSW 2127\, 
  Australia
@@ -25,131 +43,113 @@ BEGIN:VEVENT
 SUMMARY:New Zealand 🇳🇿 v 🇦🇺 Australia
 DTSTART:20261010T061000Z
 DTEND:20261010T081000Z
-UID:b94fca6c-a806-45be-9097-b0f1b44c74ae@allblacks-calendar
+UID:470254ba-fb2b-403c-aafc-06b6302c2c14@allblacks-calendar
 DESCRIPTION:All Blacks fixture
 LOCATION:Eden Park\, 42 Reimers Avenue\, Kingsland\, Auckland 1024\, New Z
  ealand
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 v 🇳🇿 New Zealand
-DTSTART:20261107T141000Z
-DTEND:20261107T161000Z
-UID:0b5c50ab-da9c-4999-8f10-8c84d016aba4@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Scottish Gas Murrayfield Stadium\, Roseburn St\, Edinburgh EH12 5
- PJ\, UK
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:[RWC] New Zealand v Chile
-DTSTART:20271002T051500Z
-DTEND:20271002T064500Z
-UID:067cf0b6-8fa3-4972-9a80-b5b53d790d38@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Optus Stadium\, 333 Victoria Park Dr\, Burswood WA 6100\, Austral
- ia
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:[RWC] New Zealand v Australia
-DTSTART:20271009T061000Z
-DTEND:20271009T074000Z
-UID:d8e5ecd9-a5d0-4876-8cab-42befab2c0de@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Accor Stadium\, Edwin Flack Ave\, Sydney Olympic Park NSW 2127\, 
- Australia
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
-DTSTART:20260829T150500Z
-DTEND:20260829T170500Z
-UID:852c25d8-045e-43a9-b0cf-8ee7b926b594@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:DHL Stadium\, Fritz Sonnenberg Rd\, Green Point\, Cape Town\, 805
- 1\, South Africa
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Bulls 🐂 v 🇳🇿 New Zealand
-DTSTART:20260815T170000Z
-DTEND:20260815T190000Z
-UID:c71890e1-a738-41ee-8465-2a1db98ab280@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Loftus Versfeld Stadium\, 416 Kirkness St\, Arcadia\, Pretoria\, 
- 0007\, South Africa
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿 v 🇳🇿 New Zealand
-DTSTART:20261114T141000Z
-DTEND:20261114T161000Z
-UID:56fa2cad-6ac4-4012-a7d3-c94f8f40396a@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Principality Stadium\, Cardiff
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 v 🇳🇿 New Zealand
-DTSTART:20261121T141000Z
-DTEND:20261121T161000Z
-UID:ce8438f2-eb23-4849-af3e-3237c302b789@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Allianz Stadium\, London
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
-DTSTART:20260822T150500Z
-DTEND:20260822T170500Z
-UID:16f3f7ee-0c1d-455d-bd00-a3573b661a5f@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Emirates Airline Park\, S Park Ln\, New Doornfontein\, Johannesbu
- rg\, 2094\, South Africa
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Lions 🦁 v 🇳🇿 New Zealand
-DTSTART:20260825T170000Z
-DTEND:20260825T190000Z
-UID:2222dccc-c10c-488b-80ba-f73502d58d55@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:Emirates Airline Park\, S Park Ln\, New Doornfontein\, Johannesbu
- rg\, 2094\, South Africa
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
-DTSTART:20260912T160000Z
-DTEND:20260912T180000Z
-UID:f41b3498-99ed-44a7-89d8-55b86005b085@allblacks-calendar
-DESCRIPTION:All Blacks fixture
-LOCATION:M&T Bank Stadium\, 1101 Russell St\, Baltimore\, MD 21230\, USA
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
 DTSTART:20260905T150500Z
 DTEND:20260905T170500Z
-UID:743bf0a7-ba2b-498c-a066-a7b9209ae038@allblacks-calendar
+UID:c8cc39fb-ff55-4650-bd61-56f77491bff6@allblacks-calendar
 DESCRIPTION:All Blacks fixture
 LOCATION:FNB Stadium\, Soccer City Ave\, Nasrec\, Johannesburg\, 2147\, So
  uth Africa
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:New Zealand 🇳🇿 v ☘️ Ireland
-DTSTART:20260718T071000Z
-DTEND:20260718T091000Z
-UID:4b88bd7e-f904-440f-916b-c084e6e81862@allblacks-calendar
+SUMMARY:England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 v 🇳🇿 New Zealand
+DTSTART:20261121T141000Z
+DTEND:20261121T161000Z
+UID:a6c93c08-9146-45a3-9d2e-f0ddc1934866@allblacks-calendar
 DESCRIPTION:All Blacks fixture
-LOCATION:Eden Park\, Auckland\, New Zealand
+LOCATION:Allianz Stadium\, London
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Stormers 🌀 v 🇳🇿 New Zealand
-DTSTART:20260807T170000Z
-DTEND:20260807T190000Z
-UID:23ef872a-a8fb-4798-845e-695cefe549d4@allblacks-calendar
+SUMMARY:Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 v 🇳🇿 New Zealand
+DTSTART:20261107T141000Z
+DTEND:20261107T161000Z
+UID:ee62e30e-55ba-4f69-b82a-9e12b8e5a87c@allblacks-calendar
 DESCRIPTION:All Blacks fixture
-LOCATION:DHL Stadium\, Fritz Sonnenberg Rd\, Green Point\, Cape Town\, 805
- 1\, South Africa
+LOCATION:Scottish Gas Murrayfield Stadium\, Roseburn St\, Edinburgh EH12 5
+ PJ\, UK
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Sharks 🦈 v 🇳🇿 New Zealand
 DTSTART:20260811T170000Z
 DTEND:20260811T190000Z
-UID:659e5ead-db44-4f81-bddb-86819dd84bc6@allblacks-calendar
+UID:0983c1f3-32cb-4f85-8829-65f2390a1e3c@allblacks-calendar
 DESCRIPTION:All Blacks fixture
 LOCATION:Hollywoodbets Kings Park Stadium\, Jacko Jackson Dr\, Stamford Hi
  ll\, Durban\, 4025\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:[RWC] New Zealand v Chile
+DTSTART:20271002T051500Z
+DTEND:20271002T064500Z
+UID:d814d04d-4ee1-47d3-9a47-612db2e0c7e3@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Optus Stadium\, 333 Victoria Park Dr\, Burswood WA 6100\, Austral
+ ia
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lions 🦁 v 🇳🇿 New Zealand
+DTSTART:20260825T170000Z
+DTEND:20260825T190000Z
+UID:cf0392be-bc29-4a82-9262-2824fb1fa678@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Emirates Airline Park\, S Park Ln\, New Doornfontein\, Johannesbu
+ rg\, 2094\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿 v 🇳🇿 New Zealand
+DTSTART:20261114T141000Z
+DTEND:20261114T161000Z
+UID:acf9703b-b3dc-4838-9c02-bc831b9eb898@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Principality Stadium\, Cardiff
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Stormers 🌀 v 🇳🇿 New Zealand
+DTSTART:20260807T170000Z
+DTEND:20260807T190000Z
+UID:66cf6213-f723-4627-b440-da52de60980c@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:DHL Stadium\, Fritz Sonnenberg Rd\, Green Point\, Cape Town\, 805
+ 1\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:[RWC] New Zealand v Australia
+DTSTART:20271009T061000Z
+DTEND:20271009T074000Z
+UID:e8f5a536-6852-47cd-a29f-db9be957163d@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Accor Stadium\, Edwin Flack Ave\, Sydney Olympic Park NSW 2127\, 
+ Australia
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Bulls 🐂 v 🇳🇿 New Zealand
+DTSTART:20260815T170000Z
+DTEND:20260815T190000Z
+UID:cd9f9257-eb04-41ed-aec1-1684422d8007@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Loftus Versfeld Stadium\, 416 Kirkness St\, Arcadia\, Pretoria\, 
+ 0007\, South Africa
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:[RWC] New Zealand v Hong Kong China
+DTSTART:20271015T061500Z
+DTEND:20271015T074500Z
+UID:31953d96-e6db-4867-b852-577aa65a0f97@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:Marvel Stadium\, 740 Bourke St\, Docklands VIC 3008\, Australia
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:South Africa 🇿🇦 v 🇳🇿 New Zealand
+DTSTART:20260912T160000Z
+DTEND:20260912T180000Z
+UID:be05283f-db91-47be-9eee-063af808a553@allblacks-calendar
+DESCRIPTION:All Blacks fixture
+LOCATION:M&T Bank Stadium\, 1101 Russell St\, Baltimore\, MD 21230\, USA
 END:VEVENT
 END:VCALENDAR
