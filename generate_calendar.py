@@ -2,6 +2,7 @@ import requests
 from icalendar import Calendar, Event
 from datetime import datetime, timezone
 import uuid
+import re
 
 SOURCE_URL = "https://www.google.com/calendar/ical/ct240d39oc9kq21cq3bn70jii8%40group.calendar.google.com/public/basic.ics"
 
@@ -79,8 +80,20 @@ for component in source_calendar.walk():
     # Clean the event title
     clean_summary = summary
 
+    # Remove prefixes such as NC:, C:, and NZ:
     for prefix in ["NC:", "C:", "NZ:"]:
         clean_summary = clean_summary.replace(prefix, "").strip()
+
+    # Remove scores from completed matches
+    # Example:
+    # New Zealand 🇳🇿 40 v 21 ☘️ Ireland
+    # becomes:
+    # New Zealand 🇳🇿 v ☘️ Ireland
+    clean_summary = re.sub(
+        r"\s+\d+\s+v\s+\d+\s+",
+        " v ",
+        clean_summary
+    )
 
     event = Event()
 
