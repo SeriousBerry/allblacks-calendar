@@ -1,6 +1,5 @@
 import requests
 from icalendar import Calendar, Event
-from datetime import datetime, timezone
 import uuid
 
 SOURCE_URL = "https://www.google.com/calendar/ical/ct240d39oc9kq21cq3bn70jii8%40group.calendar.google.com/public/basic.ics"
@@ -14,7 +13,6 @@ output = Calendar()
 output.add("prodid", "-//All Blacks Calendar//EN")
 output.add("version", "2.0")
 output.add("X-WR-CALNAME", "All Blacks Fixtures")
-output.add("X-WR-TIMEZONE", "Australia/Sydney")
 output.add("CALSCALE", "GREGORIAN")
 
 count = 0
@@ -44,39 +42,29 @@ for component in source_calendar.walk():
 
     event_text = summary + " " + description + " " + location
 
+    # Only New Zealand senior men's fixtures
     if "New Zealand" not in summary:
         continue
 
+    # Exclude other NZ teams and women's rugby
     if any(term in event_text for term in excluded_terms):
         continue
 
-    start = component.get("dtstart")
-
-    if not start:
-        continue
-
-    event_date = start.dt
-
-    # Remove past events
-    if isinstance(event_date, datetime):
-        if event_date.replace(tzinfo=timezone.utc) < datetime.now(timezone.utc):
-            continue
-    else:
-        if event_date < datetime.now().date():
-            continue
-
+    # Clean the title
     clean_summary = summary
+
     for prefix in ["NC:", "C:", "NZ:"]:
         clean_summary = clean_summary.replace(prefix, "").strip()
 
     event = Event()
 
-    # Generate a fresh UID Google can track
+    # Generate a fresh UID for Google Calendar
     event.add("uid", str(uuid.uuid4()) + "@allblacks-calendar")
 
     event.add("summary", clean_summary)
 
-    event.add("dtstart", component.get("dtstart").dt)
+    if component.get("dtstart"):
+        event.add("dtstart", component.get("dtstart").dt)
 
     if component.get("dtend"):
         event.add("dtend", component.get("dtend").dt)
@@ -84,13 +72,9 @@ for component in source_calendar.walk():
     if location:
         event.add("location", location)
 
-    event.add(
-        "description",
-        "All Blacks fixture"
-    )
+    event.add("description", "All Blacks fixture")
 
     output.add_component(event)
-
     count += 1
 
 
