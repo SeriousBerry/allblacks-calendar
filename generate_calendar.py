@@ -1,5 +1,6 @@
 import requests
 from icalendar import Calendar, Event
+from datetime import datetime, timezone
 import uuid
 
 SOURCE_URL = "https://www.google.com/calendar/ical/ct240d39oc9kq21cq3bn70jii8%40group.calendar.google.com/public/basic.ics"
@@ -16,6 +17,9 @@ output.add("X-WR-CALNAME", "All Blacks Fixtures")
 output.add("CALSCALE", "GREGORIAN")
 
 count = 0
+
+# Keep matches from 1 January 2025 onwards
+cutoff_date = datetime(2025, 1, 1, tzinfo=timezone.utc)
 
 excluded_terms = [
     "♀",
@@ -46,11 +50,33 @@ for component in source_calendar.walk():
     if "New Zealand" not in summary:
         continue
 
-    # Exclude other NZ teams and women's rugby
+    # Exclude women's rugby and other New Zealand teams
     if any(term in event_text for term in excluded_terms):
         continue
 
-    # Clean the title
+    # Get event start date
+    start = component.get("dtstart")
+
+    if not start:
+        continue
+
+    event_date = start.dt
+
+    # Keep only events from 1 January 2025 onwards
+    if isinstance(event_date, datetime):
+
+        if event_date.tzinfo is None:
+            event_date = event_date.replace(tzinfo=timezone.utc)
+
+        if event_date < cutoff_date:
+            continue
+
+    else:
+
+        if event_date < cutoff_date.date():
+            continue
+
+    # Clean the event title
     clean_summary = summary
 
     for prefix in ["NC:", "C:", "NZ:"]:
@@ -58,8 +84,9 @@ for component in source_calendar.walk():
 
     event = Event()
 
-    # Generate a fresh UID for Google Calendar
-    event.add("uid", str(uuid.uuid4()) + "@allblacks-calendar")
+    # Use a stable UID so Google Calendar recognises the same match
+    original_uid = str(component.get("uid", ""))
+    event.add("uid", original_uid + "@allblacks-calendar")
 
     event.add("summary", clean_summary)
 
@@ -75,6 +102,7 @@ for component in source_calendar.walk():
     event.add("description", "All Blacks fixture")
 
     output.add_component(event)
+
     count += 1
 
 
